@@ -1,4 +1,5 @@
 import Expenses from "./components/Expenses/Expenses";
+import NewExpense from "./components/NewExpense/NewExpense";
 import React from "react";
 
 const App = () => {
@@ -23,6 +24,10 @@ const App = () => {
       date: new Date(2021, 5, 12),
     },
   ];
+  const addExpenseHandler = expense => {
+    console.log('In App.js')
+    console.log(expense)
+  }
   // // JSX를 쓰지 않는 대안법. 과거의 방법. JSX에서 전체태그가 하나여야하는 이유(createElement 2개를 동시 반환은 안되니까?) 
   // return React.createElement(
   //   "div",
@@ -32,7 +37,7 @@ const App = () => {
   // );
   return (
     <div>
-      <h2>Let's get started!</h2>
+      <NewExpense onAddExpense={addExpenseHandler}/>
       <Expenses items={expenses}/>
     </div>
   );
